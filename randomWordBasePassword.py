@@ -21,13 +21,14 @@ for wordDict in WordBaseConverter.WORDS_DICT.keys():
         const="{0}".format(wordDict), action='append_const', dest='wordSets')
 argsParser.add_argument("-q", "--quantity", help="Specify quantity of passwords to generate, default=1", type=int, default=1)
 argsParser.add_argument("-f", "--wordsfile", help="Specify a input file containing whitespace delimited list of unique words to use as base", type=str)
+argsParser.add_argument("-n", "--randomnum", help="Append or Prepend a random number of the specified length", type=int, default=0)
 args=argsParser.parse_args()
 
 
 rando = random.SystemRandom()
 
 for q in range(0,args.quantity):
-    passwdBitsFrom=2**args.bits
+    passwdBitsFrom=(2**(args.bits-1))+1
     passwdBitsTo=(2**(args.bits+1))-1
     myRandInt = rando.randint(passwdBitsFrom,passwdBitsTo)
     myDelim=defaultDelim
@@ -59,6 +60,18 @@ for q in range(0,args.quantity):
                 print "defaultWordSets[{0}]".format(",".join(sorted(defaultWordSets)))
             
     wordOut = wordConv.encode(myRandInt)
+    if args.randomnum:
+        ranDigits=""
+        for ranDigitCtr in (range(args.randomnum)):
+            ranDigits=ranDigits+str(rando.choice([0,1,2,3,4,5,6,7,8,9]))
+        if ranDigits:
+            if rando.choice([True,False]):
+                # Prepend
+                wordOut="{0}{1}{2}".format(ranDigits,myDelim,wordOut)
+            else:
+                # Append
+                wordOut="{0}{1}{2}".format(wordOut,myDelim,ranDigits)
+            
     if args.verbose:
         print "  wordBaseCount[{0}]".format(len(wordConv.WORD_BASE_DIGITS))
     if myCase == "upper":
