@@ -6,6 +6,13 @@ import random
 import argparse
 import pprint
 
+# Hack for C-Long limiration on range/xrange in python 2.6
+def rangeHack(start,stop):
+   i = start
+   while i < stop:
+       yield i
+       i += 1
+
 defaultWordSets=['3letter']
 
 argsParser=argparse.ArgumentParser()
@@ -36,7 +43,7 @@ if args.verbose:
     print "  wordBaseCount[{0}]".format(len(wordConv.WORD_BASE_DIGITS))
 
 
-for myInt in xrange(args.start,args.end):
+for myInt in rangeHack(args.start,args.end):
     wordOut  = wordConv.encode(myInt).upper()
     intCheck = int(wordConv.decode(wordOut))
     #pprint.pprint(intCheck) ; pprint.pprint(myInt)
