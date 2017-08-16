@@ -6,7 +6,7 @@ import random
 import argparse
 
 defaultBits=40
-defaultWordSets=['3letter']
+defaultWordSets=['names3','names4']
 defaultDelim="-" 
 defaultCase="upper"
 
@@ -16,14 +16,15 @@ argsParser.add_argument("-c", "--case", help="Enable word case randomization", a
 argsParser.add_argument("-d", "--delim", help="Enable delimiter randomization", action="store_true")
 argsParser.add_argument("-b", "--bits", help="Specify number of bits in password to be generated, default={0}".format(defaultBits), type=int, default=defaultBits)
 #argsParser.add_argument("-w", "--wordsets", help="Specify word set(s) to use, default={0}".format(defaultWordSets), type=str, default=defaultWordSets, choices=WordBaseConverter.WORDS_DICT.keys(), action='append')
-for wordDict in WordBaseConverter.WORDS_DICT.keys():
-    argsParser.add_argument("--{0}".format(wordDict), help="Add {0} word dictionary to base".format(wordDict), \
-        const="{0}".format(wordDict), action='append_const', dest='wordSets')
 argsParser.add_argument("-q", "--quantity", help="Specify quantity of passwords to generate, default=1", type=int, default=1)
 argsParser.add_argument("-f", "--wordsfile", help="Specify a input file containing whitespace delimited list of unique words to use as base", type=str)
 argsParser.add_argument("-n", "--randomnum", help="Append or Prepend a random number of the specified length", type=int, default=0)
-args=argsParser.parse_args()
 
+argsDictsGroup = argsParser.add_argument_group('Dictionaries','Select which word sets compose the base dictionary, Select between 3,4 and 5 letter english names and english words. Default: {0}'.format(','.join(defaultWordSets)))
+for wordDict in WordBaseConverter.WORDS_DICT.keys():
+    argsDictsGroup.add_argument("--{0}".format(wordDict), help="Add {0} word dictionary to base".format(wordDict), \
+        const="{0}".format(wordDict), action='append_const', dest='wordSets')
+args=argsParser.parse_args()
 
 rando = random.SystemRandom()
 

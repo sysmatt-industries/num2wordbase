@@ -12,7 +12,7 @@ class WordBaseConverter(object):
     WORD_DELIM=""
     DECIMAL_BASE_DIGITS = '0123456789'
     WORDS_DICT={
-        '3names':"""
+        'names3':"""
             SAY TAN ERZ SIL HOR PUZ BEY YAX NYE JAE KAN HSY QIU DEA MIR JOU EVA RAX DIX SUE FIX XUE UXA OKI ORD WIN REX RIA SOO SAA KAR COE 
             TSO FAT KUM ORK OTO MEG VEE RUD RAU LAH COS TRY PRO HIN LIU KAY ILG ROW JOY GOW VIS ZUK HIM POD GUS TAJ LAU MAM DUK CHU JEE AHO 
             CAR FYE YAM NED KOR AUN RYU OYA TOH TOI BON ASA VAY PON MIX RAS ARO DOE SIN DYL FAW LON KEO LIE MOU NAM JON MOH HYE DAI ERM HOH 
@@ -44,7 +44,7 @@ class WordBaseConverter(object):
             TIO TYL BEN ROE YAU LEI NIE HIX RIO HOE ING NIU SEE DUX TUN IBA UPP DRY LUC EDA ALU KEM AST GUZ FEW KOU DEE DOU LOK PEW WHY VIA 
             ROS BAU ROA TSU BAH ORF SEY PIA LEE KOO ZAM SIU DON DEY ONG APT ELA ORE ALO OMO ORT CLY CAY ACK NIN HAU KUS ENO MOM HAS ZOE LES 
             AVE VIL LUK ZIA YIM SUD CHO TAK SAK SIA TEE HUR""".lower(),
-        '4names':"""
+        'names4':"""
             NETA BURT GIGI JADE ZORA ZANE KACY LORE RONA LADY BART LONI JOSH LARA BURL LUCY KARY ASHA MACY SETH NONA MARX NERY TOYA KATI RAUL 
             TESS BRAD ZENA YONG REED RUDY KORY IRMA JOHN NEDA MAIA JEFF COLE SONG DOUG TARA LINN STAN DORI HONG JONA DONA JERI WAVA MISS ERIC 
             LEAH STAR TAMA ROSE TREY GAIL MAUD RICH SHAD ANYA DICK ZULA KAYE LINA ERIN KARA CHAS KALI EDDY TORY IVEY VIKI LALA ETTA JANE MACK 
@@ -63,7 +63,7 @@ class WordBaseConverter(object):
             LEAN TANA MERI VIVA GARY EARL JONE REVA KING EXIE JEAN HOYT MING HANH ZOLA DINO JINA NINA KYLE JUNG KENA ARON TOBI ALEX IRIS SIMA 
             ELLA VENA ROBT SAUL LOMA DENA NILA KENT TONY ELOY LEDA MICA RONI JENI VERA KIRK PAGE DANA IVAN LORY LEVI LONG SHAE LISE JULE LOIS 
             INES THEO ABBY GWYN MIKE FRED RICO RIVA MAYA OLEN DEAN ALDA VEDA ELZA DORA HUGH KATY KIRA GWEN JENA DIRK OMAR""".lower(),
-        '5names':"""
+        'names5':"""
             MANNY TROHA KRELL TYNON KEELY DOWER PAIGE DACUS THANE SHIRE ALDEN COHEN SENTZ BOSSI TEFFT PRELL EGERT PALOS SAINT ROGGE TRINE 
             STAGG HERDA KIRBY LOIKO WARES ALTER HAZEL LABOY PERKS FOGLE HOFER BIELE SWETT BRANT BUYCK NAKIA BEIER LOSCO JUDAH TIGGS LOVEN 
             BYRGE RACCA LEROY PERKO ZAUGG MADON LOYCE ORAMA CHINA SOURS MANDY DOMKE EDICK TYNER GRATZ BENTE MONJE JERRI PERLA MOERS KOTHE 
@@ -433,7 +433,7 @@ class WordBaseConverter(object):
             HSIEH ALVEZ THIRY WHANG CRALL CRAIG MANZI HAACK RIVES PRESS ZWEIG CIERA LOMAN LUIGI ROADS ASTON TOSTO FAVRE MCBAY CLOUD MACKY 
             EPLER JAWAD DUDEN DANTE KALIL PARKE ZAKER NAJAR SAXON PAYER FOLKS TIETZ BUIST NALLS CHOMA DILLS DARST IRENA BUTAY LUTON NIKKI 
             BUDAK YARDE REMER MENTZ LADAY TOBIN FINKS COONE MAGEN PAPEN """.lower(),
-        '3letter': """
+        'word3': """
             aah	aal	aam	aas	aba	abb	abc	abd	abe	abl	abn	abo	abp	abr	abs	abt	
             abu	abv	aby	acc	ace	ach	ack	act	acy	ada	adc	add	ade	adj	adm	ado	
             adp	ads	adv	ady	adz	aeq	aer	aes	aet	afb	afd	aff	aft	aga	age	ago	
@@ -545,7 +545,7 @@ class WordBaseConverter(object):
             yus	zac	zad	zag	zak	zan	zap	zar	zat	zax	zea	zed	zee	zek	zel	zen	
             zep	zer	zho	zig	zip	zit	zoa	zod	zoo	
         """.lower(),
-        '4letter': """
+        'word4': """
             aahs	aals	aani	aaru	abac	abas	abay	abba	abbe	abbr	abby	abed	abel	abet	abey	abib	
             abie	abir	abit	able	ably	abos	abow	abox	abri	absi	abut	abye	abys	acad	acca	acce	
             acct	aced	acer	aces	ache	achy	acid	acis	acle	aclu	acme	acne	acop	acor	acpt	acre	
@@ -984,7 +984,7 @@ class WordBaseConverter(object):
             zigs	zila	zill	zimb	zinc	zing	zink	zion	zipa	zips	zira	ziti	zits	zizz	zobo	zogo	
             zoic	zoid	zoll	zona	zone	zool	zoom	zoon	zoos	zori	zubr	zulu	zuni	zuza	zyga	zyme	
         """.lower(),
-        '5letter': """
+        'word5': """
             aahed	aalii	aargh	aaron	abaca	abaci	aback	abada	abaff	abaft	abaka	abama	abamp	aband	abase	abash	
             abask	abate	abave	abaze	abbas	abbes	abbey	abbie	abbot	abdal	abdat	abdom	abeam	abear	abede	abele	
             abend	aberr	abets	abhor	abide	abidi	abies	abilo	abime	abkar	abler	ables	ablet	ablow	abmho	abner	
