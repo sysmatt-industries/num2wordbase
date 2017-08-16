@@ -5,7 +5,7 @@ import sys
 import random
 import argparse
 
-defaultWordSets=['3letter']
+defaultWordSets=['names3','names4']
 
 argsParser=argparse.ArgumentParser()
 argsParser.add_argument("-v", "--verbose", help="Enable Verbose Messages", action="store_true")
