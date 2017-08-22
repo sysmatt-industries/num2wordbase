@@ -4,6 +4,7 @@ from WordBaseConverter import WordBaseConverter
 import sys
 import random
 import argparse
+import string
 
 defaultBits=40
 defaultWordSets=['names3','names4']
@@ -60,7 +61,10 @@ for q in range(0,args.quantity):
             if args.verbose:
                 print "defaultWordSets[{0}]".format(",".join(sorted(defaultWordSets)))
             
-    wordOut = wordConv.encode(myRandInt)
+    wordOutList = wordConv.encode(myRandInt).split(myDelim)
+    # shuffle
+    rando.shuffle(wordOutList)
+    wordOut = myDelim.join(wordOutList)
     if args.randomnum:
         ranDigits=""
         for ranDigitCtr in (range(args.randomnum)):
